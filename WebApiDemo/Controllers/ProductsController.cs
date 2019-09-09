@@ -87,5 +87,19 @@ namespace WebApiDemo.Controllers
                 return BadRequest();
             }
         }
+
+        [HttpGet("GetProductDetails")]
+        public IActionResult GetProductWithDetails()
+        {
+            try
+            {
+               var result = _productDal.GetProductsWithDetails();
+                return Ok(result);
+            }
+            catch
+            {
+            }
+            return BadRequest();
+        }
     }
 }

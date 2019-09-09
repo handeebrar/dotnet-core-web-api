@@ -18,5 +18,6 @@ namespace WebApiDemo.DataAccess
 
         //contextler dbdeki tablolarla nesneleri map ettğimiz ilk noktadır
         public Microsoft.EntityFrameworkCore.DbSet<Product> Products { get; set; }
+        public Microsoft.EntityFrameworkCore.DbSet<Category> Categories { get; set; }
     }
 }
