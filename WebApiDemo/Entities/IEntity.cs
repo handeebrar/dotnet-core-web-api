@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 namespace WebApiDemo.Entities
 {
     //bu interface'i implement eden sınıflar benim için db nesnesidir anlamına gelir
-    interface IEntity
+    public interface IEntity
     {
     }
 }
