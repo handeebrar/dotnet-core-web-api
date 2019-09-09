@@ -9,6 +9,7 @@ namespace WebApiDemo.Controllers
     [Route("api/products")]
     public class ProductsController : Controller
     {
+        [HttpGet("")]
         public string Get()
         {
             return "Product1";
