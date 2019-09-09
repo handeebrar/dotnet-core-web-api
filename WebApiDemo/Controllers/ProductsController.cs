@@ -44,9 +44,18 @@ namespace WebApiDemo.Controllers
             }
         }
 
-        public IActionResult Post([FromBody]Product product) //json formatında gelen datayı alabilmek için FromBody eklenir
+        public IActionResult Post(Product product)
         {
-            return Ok();
+            try
+            {
+                _productDal.Add(product);
+                return new StatusCodeResult(201);
+            }
+            catch (Exception)
+            {
+
+                return BadRequest();
+            }
         }
     }
 }
