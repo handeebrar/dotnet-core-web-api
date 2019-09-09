@@ -22,5 +22,26 @@ namespace WebApiDemo.Controllers
             var products = _productDal.GetList();
             return Ok(products);
         }
+
+        [HttpGet("{productId}")]
+        public IActionResult Get(int productId)
+        {
+            try
+            {
+                var product = _productDal.Get(p => p.ProductId == productId);
+
+                if (productId != null)
+                {
+                    return Ok(product);
+                }
+                return NotFound($"There is no product with Id = {productId}");
+            }
+            catch (Exception)
+            {
+
+                return BadRequest();
+            }
+
+        }
     }
 }
