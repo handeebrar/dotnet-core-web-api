@@ -57,5 +57,20 @@ namespace WebApiDemo.Controllers
                 return BadRequest();
             }
         }
+
+        [HttpPut] //put operasyonlarında belirtmek gerekli
+        public IActionResult Put(Product product)
+        {
+            try
+            {
+                _productDal.Update(product);
+                return Ok(product);
+            }
+            catch (Exception)
+            {
+
+                return BadRequest();
+            }
+        }
     }
 }
