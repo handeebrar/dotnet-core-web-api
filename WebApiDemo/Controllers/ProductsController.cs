@@ -4,6 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using WebApiDemo.DataAccess;
+using WebApiDemo.Entities;
 
 namespace WebApiDemo.Controllers
 {
@@ -41,7 +42,11 @@ namespace WebApiDemo.Controllers
 
                 return BadRequest();
             }
+        }
 
+        public IActionResult Post([FromBody]Product product) //json formatında gelen datayı alabilmek için FromBody eklenir
+        {
+            return Ok();
         }
     }
 }
