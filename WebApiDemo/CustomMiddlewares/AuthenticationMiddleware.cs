@@ -22,6 +22,12 @@ namespace WebApiDemo.CustomMiddlewares
         {
             string authHeader = context.Request.Headers["Authorization"]; //basic hande:12345
 
+            if (authHeader == null) //autheader hiç yoksa kontrol etme sonraki middleware'e geç
+            {
+                await _next(context);
+                return;
+            }
+
             if (authHeader != null && authHeader.StartsWith("basic", StringComparison.OrdinalIgnoreCase)) //autheader var ve basicle başlıyorsa
             {
                 var token = authHeader.Substring(6).Trim(); //hande:12345
