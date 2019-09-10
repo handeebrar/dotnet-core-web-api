@@ -10,6 +10,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;
+using WebApiDemo.CustomMiddlewares;
 using WebApiDemo.DataAccess;
 using WebApiDemo.Formatter;
 
@@ -48,6 +49,9 @@ namespace WebApiDemo
             }
 
             app.UseHttpsRedirection();
+
+            app.UseMiddleware<AuthenticationMiddleware>();
+
             //routing yapılandırması için fakat bu artık kullanılmıyor
             app.UseMvc(config =>
             {
